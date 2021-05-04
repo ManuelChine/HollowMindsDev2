@@ -24,14 +24,11 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
         {
             const string query = @"
 SELECT
-    temperature_max as TemperatureMax,
-    temperature_min as TemperatureMin,
-    pressure_max as PreassureMax,
-    pressure_min as PreassureMin,
+    temperature as Temperature,
+    pressure as Preassure,
     level_max as LevelMax,
     level_min as LevelMin,
-    umidity_max as UmidityMax,
-    umidity_min as UmidityMin,
+    umidity as Umidity,
     material as Material
 FROM limit_silo;";
             using var connection = new MySqlConnection(_connectionString);
@@ -42,14 +39,11 @@ FROM limit_silo;";
         {
             const string query = @"
 SELECT
-    temperature_max as TemperatureMax,
-    temperature_min as TemperatureMin,
-    pressure_max as PreassureMax,
-    pressure_min as PreassureMin,
+    temperature as Temperature,
+    pressure as Preassure,
     level_max as LevelMax,
     level_min as LevelMin,
-    umidity_max as UmidityMax,
-    umidity_min as UmidityMin,
+    umidity as Umidity,
     material as Material
 FROM limit_silo
 WHERE idLimit = @idL";
@@ -60,7 +54,7 @@ WHERE idLimit = @idL";
         public void Delete(int id)
         {
             const string query = @"
-DELETE FROM limit
+DELETE FROM limit_silo
 WHERE idLimit = @idL;";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, new { idL = id });
@@ -68,21 +62,22 @@ WHERE idLimit = @idL;";
 
         public void Insert(Limit model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+INSERT INTO limit_silo (temperature,umidity,pressure,level_max, level_min,material)
+VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
+            using var connection = new MySqlConnection(_connectionString);
+            connection.Execute(query, model);
         }
 
         public Limit LimitBySilo(int idSilo)
         {
             const string query = @"
 SELECT
-    temperature_max as TemperatureMax,
-    temperature_min as TemperatureMin,
-    pressure_max as PreassureMax,
-    pressure_min as PreassureMin,
+    temperature as Temperature,
+    pressure as Preassure,
     level_max as LevelMax,
     level_min as LevelMin,
-    umidity_max as UmidityMax,
-    umidity_min as UmidityMin,
+    umidity as Umidity,
     material as Material
 FROM limit_silo
 INNER JOIN silo
