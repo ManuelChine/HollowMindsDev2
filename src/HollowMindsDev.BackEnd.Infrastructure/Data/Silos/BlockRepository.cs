@@ -39,7 +39,7 @@ SELECT
 FROM block
 WHERE idBlock = @idB;";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Block>(query, new { id });
+            return connection.QueryFirstOrDefault<Block>(query, new { idB = id });
         }
 
         public Block BlockBySilo(int idSilo)
@@ -57,7 +57,7 @@ WHERE silo.idSilo = @idS;";
 
         public void Delete(int id)
         {
-            const string query = @"DELETE FROM block WHERE id = @id;";
+            const string query = @"DELETE FROM block WHERE idBlock = @id;";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, new { Id = id });
         }
@@ -65,7 +65,7 @@ WHERE silo.idSilo = @idS;";
         public void Insert(Block model)
         {
             const string query = @"
-INSERT INTO tasks ( name as Name, )
+INSERT INTO block (name)
 VALUES (@Name);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
@@ -75,7 +75,7 @@ VALUES (@Name);";
         {
             const string query = @"
 UPDATE block
-SET Name = @Name
+SET name = @Name
 WHERE idBlock = @Id;";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
