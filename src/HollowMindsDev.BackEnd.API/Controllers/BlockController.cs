@@ -21,31 +21,83 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Block> Get()
+        public IActionResult Get()
         {
-            return _blockService.GetAllBlock();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_blockService.GetAllBlock());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // GET api/<TaskController>/5
         [HttpGet("{id}")]
-        public Block Get(int id)
+        public IActionResult Get(int id)
         {
-            return _blockService.GetByIdBlock(id);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_blockService.GetByIdBlock(id));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // GET api/<TaskController>/5
         [HttpGet("BlockBySilo/{id}")]
-        public Block BlockBySilo(int id)
+        public IActionResult BlockBySilo(int id)
         {
-            return _blockService.BlockBySilo(id);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_blockService.BlockBySilo(id));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // POST api/<TaskController>
 
         [HttpGet("GetBySilo/{idSilo}")]
-        public Block GetBySilo(int idSilo)
+        public IActionResult BlockBySilo(int idSilo)
         {
-            return _blockService.BlockBySilo(idSilo);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_blockService.BlockBySilo(idSilo));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
 
@@ -54,6 +106,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _blockService.InsertBlock(value);
                 return Ok(new
                 {
@@ -76,6 +130,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _blockService.UpdateBlock(value);
                 return Ok(new
                 {
@@ -98,6 +154,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _blockService.DeleteBlock(id);
                 return Ok(new
                 {
