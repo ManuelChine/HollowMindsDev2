@@ -63,7 +63,7 @@ WHERE idLimit = @idL;";
         public void Insert(Limit model)
         {
             const string query = @"
-INSERT INTO limit_silo (temperature,umidity,pressure,level_max, level_min,material)
+INSERT INTO limit_silo (temperature, umidity, pressure, level_max, level_min, material)
 VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
