@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>81c860cb-1c1e-4736-86bd-6de10237e5bc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HollowMindsDev.BackEnd.ApplicationCore\HollowMindsDev.BackEnd.ApplicationCore.csproj" />
+    <ProjectReference Include="..\HollowMindsDev.BackEnd.Infrastructure\HollowMindsDev.BackEnd.Infrastructure.csproj" />
+    <ProjectReference Include="..\HollowMindsDev.BackEnd.Services\HollowMindsDev.BackEnd.Services.csproj" />
+  </ItemGroup>
+
+</Project>

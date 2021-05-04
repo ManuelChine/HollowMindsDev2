@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HollowMindsDev.BackEnd.ApplicationCore", "HollowMindsDev.BackEnd.ApplicationCore\HollowMindsDev.BackEnd.ApplicationCore.csproj", "{3451DF5A-A2BE-45A0-A98E-648AF4C751AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HollowMindsDev.BackEnd.Infrastructure", "HollowMindsDev.BackEnd.Infrastructure\HollowMindsDev.BackEnd.Infrastructure.csproj", "{2F69DC02-B8EB-4410-9B1F-24F0EA60673B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HollowMindsDev.BackEnd.Services", "HollowMindsDev.BackEnd.Services\HollowMindsDev.BackEnd.Services.csproj", "{DA42D75B-9DFC-4AC5-96DE-6D28D798A0B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HollowMindsDev.BackEnd.API", "HollowMindsDev.BackEnd.API\HollowMindsDev.BackEnd.API.csproj", "{980C59EE-F4B5-4908-9926-0AE0816890EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollowMindsDev.BackEnd.WebApp", "HollowMindsDev.BackEnd.WebApp\HollowMindsDev.BackEnd.WebApp.csproj", "{750ECFEF-9EE7-48DC-A1EF-336EEB30F46F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3451DF5A-A2BE-45A0-A98E-648AF4C751AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3451DF5A-A2BE-45A0-A98E-648AF4C751AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3451DF5A-A2BE-45A0-A98E-648AF4C751AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3451DF5A-A2BE-45A0-A98E-648AF4C751AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F69DC02-B8EB-4410-9B1F-24F0EA60673B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F69DC02-B8EB-4410-9B1F-24F0EA60673B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F69DC02-B8EB-4410-9B1F-24F0EA60673B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F69DC02-B8EB-4410-9B1F-24F0EA60673B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA42D75B-9DFC-4AC5-96DE-6D28D798A0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA42D75B-9DFC-4AC5-96DE-6D28D798A0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA42D75B-9DFC-4AC5-96DE-6D28D798A0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA42D75B-9DFC-4AC5-96DE-6D28D798A0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980C59EE-F4B5-4908-9926-0AE0816890EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980C59EE-F4B5-4908-9926-0AE0816890EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980C59EE-F4B5-4908-9926-0AE0816890EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980C59EE-F4B5-4908-9926-0AE0816890EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750ECFEF-9EE7-48DC-A1EF-336EEB30F46F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750ECFEF-9EE7-48DC-A1EF-336EEB30F46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750ECFEF-9EE7-48DC-A1EF-336EEB30F46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750ECFEF-9EE7-48DC-A1EF-336EEB30F46F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFB70569-F570-4058-9CFC-B639E6FA78FA}
+	EndGlobalSection
+EndGlobal
