@@ -52,7 +52,7 @@ INNER JOIN silo
 ON block.idBlock = silo.idBlock
 WHERE silo.idSilo = @idS;";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Block>(query, new { idSilo });
+            return connection.QueryFirstOrDefault<Block>(query, new { idS = idSilo });
         }
 
         public void Delete(int id)

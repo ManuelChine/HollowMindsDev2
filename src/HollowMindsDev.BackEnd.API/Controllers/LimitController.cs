@@ -11,50 +11,42 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlockController : ControllerBase
+    public class LimitController : ControllerBase
     {
-        private readonly IBlockService _blockService;
+        private readonly ILimitService _limitService;
 
-        public BlockController(IBlockService blockService)
+        public LimitController(ILimitService limitService)
         {
-            _blockService = blockService;
+            _limitService = limitService;
         }
 
         [HttpGet]
-        public IEnumerable<Block> Get()
+        public IEnumerable<Limit> Get()
         {
-            return _blockService.GetAllBlock();
+            return _limitService.GetAllLimit();
         }
 
         // GET api/<TaskController>/5
         [HttpGet("{id}")]
-        public Block Get(int id)
+        public Limit Get(int id)
         {
-            return _blockService.GetByIdBlock(id);
+            return _limitService.GetByIdLimit(id);
         }
 
         // GET api/<TaskController>/5
-        [HttpGet("BlockBySilo/{id}")]
-        public Block BlockBySilo(int id)
+        [HttpGet("LimitBySilo/{id}")]
+        public Limit LimitBySilo(int id)
         {
-            return _blockService.BlockBySilo(id);
-        }
-
-        // POST api/<TaskController>
-
-        [HttpGet("GetBySilo/{idSilo}")]
-        public Block GetBySilo(int idSilo)
-        {
-            return _blockService.BlockBySilo(idSilo);
+            return _limitService.LimitBySilo(id);
         }
 
 
         [HttpPost]
-        public IActionResult Post(Block value)
+        public IActionResult Post(Limit value)
         {
             try
             {
-                _blockService.InsertBlock(value);
+                _limitService.InsertLimit(value);
                 return Ok(new
                 {
                     Result = true
@@ -72,11 +64,11 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 
         // PUT api/<TaskController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(Block value)
+        public IActionResult Put(Limit value)
         {
             try
             {
-                _blockService.UpdateBlock(value);
+                _limitService.UpdateLimit(value);
                 return Ok(new
                 {
                     Result = true
@@ -98,7 +90,7 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
-                _blockService.DeleteBlock(id);
+                _limitService.DeleteLimit(id);
                 return Ok(new
                 {
                     Result = true
