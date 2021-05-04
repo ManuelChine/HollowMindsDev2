@@ -51,7 +51,8 @@ WHERE idAdmin = @idA;";
 
         public bool IfIsAdmin(string mail) //Opzionale
         {
-            int x = 2;
+            //int x = 2;
+            return true;
         }
 
         public void Insert(Admin model)
