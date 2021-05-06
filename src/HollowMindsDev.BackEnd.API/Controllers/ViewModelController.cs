@@ -21,9 +21,22 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 
         // GET: api/<TaskController>
         [HttpGet]
-        public List<MeasurementModel> Get()
+        public IActionResult Get()
         {
-            return _measurementModelService.GetAllModel();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_measurementModelService.GetAllModel());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
     }
 }

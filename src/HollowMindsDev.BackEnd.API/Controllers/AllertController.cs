@@ -21,9 +21,22 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         }
 
         [HttpGet]
-        public List<AllertModel> Get()
+        public IActionResult Get()
         {
-            return _allertService.CreatorAllert();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_allertService.CreatorAllert());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
     }
 }

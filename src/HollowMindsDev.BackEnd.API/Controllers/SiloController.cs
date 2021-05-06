@@ -21,16 +21,42 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 
         // GET: api/<TaskController>
         [HttpGet]
-        public IEnumerable<Silo> Get()
+        public IActionResult Get()
         {
-            return _siloService.GetAllSilo();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_siloService.GetAllSilo());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // GET api/<TaskController>/5
         [HttpGet("{id}")]
-        public Silo Get(int id)
+        public IActionResult Get(int id)
         {
-            return _siloService.GetByIdSilo(id);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_siloService.GetByIdSilo(id));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // POST api/<TaskController>
@@ -39,6 +65,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _siloService.InsertSilo(value);
                 return Ok(new
                 {
@@ -61,6 +89,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _siloService.UpdateSilo(value);
                 return Ok(new
                 {
@@ -83,6 +113,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _siloService.DeleteSilo(id);
                 return Ok(new
                 {
