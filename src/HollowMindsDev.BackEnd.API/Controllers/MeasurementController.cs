@@ -22,23 +22,62 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 
         // GET: api/<TaskController>
         [HttpGet]
-        public IEnumerable<Measurement> Get()
+        public IActionResult Get()
         {
-            return _measurementService.GetAllMeasurement();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_measurementService.GetAllMeasurement());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
 
         // GET api/<TaskController>/5
         [HttpGet("{id}")]
-        public Measurement Get(int id)
+        public IActionResult Get(int id)
         {
-            return _measurementService.GetByIdMeasurement(id);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_measurementService.GetByIdMeasurement(id));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
         
 
         [HttpGet("GetLastMeasurement")]
-        public IEnumerable<Measurement> GetLastMeasurement()
+        public IActionResult GetLastMeasurement()
         {
-            return _measurementService.GetLastMeasurement();
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_measurementService.GetLastMeasurement());//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
         
         /*[HttpGet("GetManyMeasurBySilo/{n} {idSilo}")]
@@ -47,9 +86,22 @@ namespace HollowMindsDev.BackEnd.API.Controllers
             return _measurementService.GetManyMeasurBySilo(n, idSilo);
         }*/
         [HttpGet("GetMeasurByTime/{time}")]
-        public IEnumerable<Measurement> GetMeasurByTime(DateTime time)
+        public IActionResult GetMeasurByTime(DateTime time)
         {
-            return _measurementService.GetMeasurByTime(time);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
+                return Ok(_measurementService.GetMeasurByTime(time));//200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
         }
  
 
@@ -59,6 +111,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _measurementService.InsertMeasurement(value);
                 return Ok(new
                 {
@@ -81,6 +135,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _measurementService.UpdateMeasurement(value);
                 return Ok(new
                 {
@@ -103,6 +159,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _measurementService.DeleteMeasurement(id);
                 return Ok(new
                 {

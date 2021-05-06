@@ -81,26 +81,6 @@ namespace HollowMindsDev.BackEnd.API.Controllers
 
         // POST api/<TaskController>
 
-        [HttpGet("GetBySilo/{idSilo}")]
-        public IActionResult BlockBySilo(int idSilo)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState); // 400
-                return Ok(_blockService.BlockBySilo(idSilo));//200
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new
-                {
-                    Result = false,
-                    ErrorMessage = ex.Message
-                });
-            }
-        }
-
-
         [HttpPost]
         public IActionResult Post(Block value)
         {
