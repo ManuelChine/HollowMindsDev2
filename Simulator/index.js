@@ -2,11 +2,14 @@ const time1 = 5000;
 const time2 = 5000;
 const time3 = 5000;
 
+//funzione che prevede l'attesa di un tempo t prima dello svolgimento del suo contenuto
 function wait(time) {
     setTimeout(function() {
         console.log(getRandom(1, 2));
     }, time);
 }
+
+//funzione finale in cui partiranno tutte le attese
 (async function(){
     try{
         await wait(time1);
@@ -31,6 +34,7 @@ function decrement(time, link) {
     }, time);
 }*/
 
+//generatore di numeri decimeli casuali compresi tra parametri
 function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
