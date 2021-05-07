@@ -21,6 +21,8 @@ function wait(time) {
 })();
 //l'attesa DEVE essere ASINCRONA (da controllare)
 
+//creare lista di date in cui salvare le ultime ore in cui solo avvenuti dei decrementi
+
 
 const link = 'https://localhost:44363/api/';
 
