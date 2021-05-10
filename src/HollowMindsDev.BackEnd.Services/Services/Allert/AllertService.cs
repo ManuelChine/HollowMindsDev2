@@ -1,5 +1,6 @@
 ﻿using HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos;
 using HollowMindsDev.BackEnd.Services.Interfaces.Allert;
+using HollowMindsDev.BackEnd.Services.Interfaces.ViewModel;
 using HollowMindsDev.BackEnd.Services.Services.Silos;
 using HollowMindsDev.BackEnd.Services.Services.ViewModel;
 using HollowMindsDev.BackEnd.Services.ViewModel;
@@ -18,11 +19,11 @@ namespace HollowMindsDev.BackEnd.Services.Services.Allert
         //creare le lista di bool
         //e aggiustare dove serve
 
-        private readonly MeasurementModelService _measurementModelService;
+        private readonly IMeasurementModelService _measurementModelService;
         private readonly decimal _warning;
         private readonly decimal _allarm;
 
-        public AllertService(MeasurementModelService measurementModelService)
+        public AllertService(IMeasurementModelService measurementModelService)
         {
             _measurementModelService = measurementModelService;
             _warning = 5;

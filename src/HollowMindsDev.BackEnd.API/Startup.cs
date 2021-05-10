@@ -49,8 +49,8 @@ namespace HollowMindsDev.BackEnd.API
 
             services.AddTransient<ISiloService, SiloService>();
             services.AddTransient<IMeasurementService, MeasurementService>();
-            //services.AddTransient<IMeasurementModelService, MeasurementModelService>();
-            //services.AddTransient<IAllertService, AllertService>();
+            services.AddTransient<IMeasurementModelService, MeasurementModelService>();
+            services.AddTransient<IAllertService, AllertService>();
 
             services.AddTransient<IBlockService, BlockService>();
             services.AddTransient<ILimitService, LimitService>();
