@@ -34,8 +34,8 @@ WHERE idSilo = @idS;";
             const string query = @"
 SELECT
             idSilo as id,
-            idBlock as Block,
-            idLimit as Limit,
+            idBlock,
+            idLimit,
             height as Height,
             diameter as Diameter,
             capacity as Capacity,

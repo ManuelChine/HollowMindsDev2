@@ -9,7 +9,7 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
     public class Limit : Entity<int>
     {
         public decimal Temperature { get; set; }
-        public decimal Pressure { get; set; }
+        public decimal Preassure { get; set; }
         public int LevelMax { get; set; }
         public int LevelMin { get; set; }
         public decimal Umidity { get; set; }
