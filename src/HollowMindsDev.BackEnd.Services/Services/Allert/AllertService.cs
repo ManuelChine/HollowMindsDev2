@@ -40,14 +40,14 @@ namespace HollowMindsDev.BackEnd.Services.Services.Allert
 
             for (int i = 0; i < AllertParameters.Count; i++)
             {
-                Sensor.Add(AllertParameters[i].Measurement.Sensor0);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor1);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor2);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor3);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor4);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor5);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor6);
-                Sensor.Add(AllertParameters[i].Measurement.Sensor7);
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor0));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor1));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor2));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor3));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor4));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor5));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor6));
+                Sensor.Add(ConcerterBool(AllertParameters[i].Measurement.Sensor7));
 
                 //temperatureTop
                 if (AllertParameters[i].Measurement.TemperatureTop > (AllertParameters[i].Limit.Temperature * _warning / 100) + AllertParameters[i].Limit.Temperature)
@@ -203,6 +203,18 @@ namespace HollowMindsDev.BackEnd.Services.Services.Allert
             }
 
             return AllertOutput;
+        }
+
+        public bool ConcerterBool(byte num) 
+        {
+            if (num == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

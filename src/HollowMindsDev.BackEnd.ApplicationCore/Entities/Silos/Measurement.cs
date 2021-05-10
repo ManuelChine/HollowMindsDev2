@@ -11,35 +11,35 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
     {
         [Required]
         [Range(0, 1)]
-        public bool Sensor0 { get; set; }
+        public byte Sensor0 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor1 { get; set; }
+        public byte Sensor1 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor2 { get; set; }
+        public byte Sensor2 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor3 { get; set; }
+        public byte Sensor3 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor4 { get; set; }
+        public byte Sensor4 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor5 { get; set; }
+        public byte Sensor5 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor6 { get; set; }
+        public byte Sensor6 { get; set; }
 
         [Required]
         [Range(0, 1)]
-        public bool Sensor7 { get; set; }
+        public byte Sensor7 { get; set; }
 
         [Required]
         [Range(0.5, 10,
