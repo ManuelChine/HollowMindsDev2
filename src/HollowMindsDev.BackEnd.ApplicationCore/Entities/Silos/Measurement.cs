@@ -43,31 +43,38 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
 
         [Required]
         [Range(0.5, 10,
-            ErrorMessage = "Value For Pressure must be between {1} and {2}.")]
+            ErrorMessage = "Value For Pressure must be between {0} and {1}.")]
+        [DataType(DataType.Currency)]
+
         public decimal Pressure { get; set; }
 
         [Range(0, 100,
-            ErrorMessage = "Value For Density must be between {1}Kg/m3 and {2}Kg/m3.")]
+            ErrorMessage = "Value For Density must be between {0}Kg/m3 and {1}Kg/m3.")]
+        [DataType(DataType.Currency)]
         public decimal Density { get; set; }
 
         [Required]
         [Range(-30, 100,
-            ErrorMessage = "Value For Temperature must be between {1}°C and {2}°C.")]
+            ErrorMessage = "Value For Temperature must be between {0}°C and {1}°C.")]
+        [DataType(DataType.Currency)]
         public decimal TemperatureTop { get; set; }
 
         [Required]
         [Range(-30, 100,
-            ErrorMessage = "Value For Temperature must be between {1}°C and {2}°C.")]
+            ErrorMessage = "Value For Temperature must be between {0}°C and {1}°C.")]
+        [DataType(DataType.Currency)]
         public decimal TemperatureBottom { get; set; }
 
         [Required]
         [Range(0, 100,
-            ErrorMessage = "Value For Umidity must be between {1}% and {2}%.")]
+            ErrorMessage = "Value For Umidity must be between {0}% and {1}%.")]
+        [DataType(DataType.Currency)]
         public decimal UmidityTop { get; set; }
 
         [Required]
         [Range(0, 100,
-            ErrorMessage = "Value For Umidity must be between {1}% and {2}%.")]
+            ErrorMessage = "Value For Umidity must be between {0}% and {1}%.")]
+        [DataType(DataType.Currency)]
         public decimal UmidityBottom { get; set; }
 
         [Required]
