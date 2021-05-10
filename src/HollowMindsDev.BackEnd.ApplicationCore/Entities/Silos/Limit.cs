@@ -20,7 +20,7 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
         [Required]
         [DataType(DataType.Currency)]
 
-        public decimal Preassure { get; set; }
+        public decimal Pressure { get; set; }
 
         [Required]
         public int LevelMax { get; set; }

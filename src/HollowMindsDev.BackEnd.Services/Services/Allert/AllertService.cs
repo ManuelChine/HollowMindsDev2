@@ -94,22 +94,22 @@ namespace HollowMindsDev.BackEnd.Services.Services.Allert
 
 
                 //Pressure
-                if (AllertParameters[i].Measurement.Pressure > (AllertParameters[i].Limit.Preassure * _warning / 100) + AllertParameters[i].Limit.Preassure)
+                if (AllertParameters[i].Measurement.Pressure > (AllertParameters[i].Limit.Pressure * _warning / 100) + AllertParameters[i].Limit.Pressure)
                 {
-                    AllertOutput.Add(new AllertModel { Type = "WARNING", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the maximum preassure limit by +{_warning}%" });
+                    AllertOutput.Add(new AllertModel { Type = "WARNING", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the maximum Pressure limit by +{_warning}%" });
                 }
-                else if (AllertParameters[i].Measurement.Pressure < AllertParameters[i].Limit.Preassure * (100 - _warning) / 100)
+                else if (AllertParameters[i].Measurement.Pressure < AllertParameters[i].Limit.Pressure * (100 - _warning) / 100)
                 {
-                    AllertOutput.Add(new AllertModel { Type = "WARNING", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the minimum preassure limit by +{_warning}%" });
+                    AllertOutput.Add(new AllertModel { Type = "WARNING", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the minimum Pressure limit by +{_warning}%" });
                 }
 
-                if (AllertParameters[i].Measurement.Pressure > (AllertParameters[i].Limit.Preassure * _allarm / 100) + AllertParameters[i].Limit.Preassure)
+                if (AllertParameters[i].Measurement.Pressure > (AllertParameters[i].Limit.Pressure * _allarm / 100) + AllertParameters[i].Limit.Pressure)
                 {
-                    AllertOutput.Add(new AllertModel { Type = "ALLARM", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the maximum preassure limit by -{_allarm}%" });
+                    AllertOutput.Add(new AllertModel { Type = "ALLARM", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the maximum Pressure limit by -{_allarm}%" });
                 }
-                else if (AllertParameters[i].Measurement.Pressure < AllertParameters[i].Limit.Preassure * (100 - _allarm) / 100)
+                else if (AllertParameters[i].Measurement.Pressure < AllertParameters[i].Limit.Pressure * (100 - _allarm) / 100)
                 {
-                    AllertOutput.Add(new AllertModel { Type = "ALLARM", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the minimum preassure limit by -{_allarm}%" });
+                    AllertOutput.Add(new AllertModel { Type = "ALLARM", Body = $": silo n° {AllertParameters[i].Measurement.IdSilo} exceeded the minimum Pressure limit by -{_allarm}%" });
                 }
 
 
