@@ -152,8 +152,8 @@ AND measurement.idSilo = @idSilo;";
         public void Insert(Measurement model)
         {
             const string query = @"
-INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, time, dropcheck)
-VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @Sensor7, @Pressure, @Density, @TemperatureTop, @TemperatureBottom, @UmidityTop, @UmidityBottom, @Time, @DropCheck);";
+INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, time, dropcheck, idSilo)
+VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @Sensor7, @Pressure, @Density, @TemperatureTop, @TemperatureBottom, @UmidityTop, @UmidityBottom, @Time, @DropCheck, @IdSilo);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }

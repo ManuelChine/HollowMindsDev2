@@ -59,10 +59,10 @@ SELECT
             year as YearProd,
             location as Location
             FROM silo
-            WHERE idSilo = @Id;
+            WHERE idSilo = @idSilo;
             ";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Silo>(query, id);
+            return connection.QueryFirstOrDefault<Silo>(query, new { idSilo = id });
         }
 
         public void Insert(Silo model)
@@ -76,18 +76,7 @@ VALUES (@IdBlock, @IdLimit, @Height, @Diameter, @Capacity, @Year, @Location);";
 
         public void Update(Silo model)
         {
-            const string query = @"
-UPDATE silo
-SET idBlock = @idBlock, 
-    idLimit = @idLimit,
-    height = @Height, 
-    diameter = @Diameter, 
-    capacity = @Capacity, 
-    year = @YearProd, 
-    location = @Location,
-WHERE idSilo = @Id;";
-            using var connection = new MySqlConnection(_connectionString);
-            connection.Execute(query, model);
+            throw new NotImplementedException();
         }
     }
 }

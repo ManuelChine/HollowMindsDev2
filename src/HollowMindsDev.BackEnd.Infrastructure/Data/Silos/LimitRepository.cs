@@ -82,9 +82,9 @@ SELECT
 FROM limit_silo
 INNER JOIN silo
 ON limit_silo.idLimit = silo.idLimit
-WHERE silo.idSilo = @idSilo";
+WHERE silo.idSilo = @id";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, idSilo);
+            return connection.QueryFirstOrDefault<Limit>(query, new { id = idSilo });
         }
 
         public void Update(Limit model)
