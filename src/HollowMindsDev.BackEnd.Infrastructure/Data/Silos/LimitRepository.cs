@@ -73,6 +73,7 @@ VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
         {
             const string query = @"
 SELECT
+    limit_silo.idLimit as Id,
     temperature as Temperature,
     pressure as Pressure,
     level_max as LevelMax,

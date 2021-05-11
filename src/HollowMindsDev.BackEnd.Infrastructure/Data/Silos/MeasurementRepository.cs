@@ -83,6 +83,7 @@ WHERE idMeasurement = @idM;";
         {
             const string query = @"
             SELECT
+measurement.idMeasurement as Id,
 measurement.sensor0 as Sensor0,
 measurement.sensor1 as Sensor1,
 measurement.sensor2 as Sensor2,
@@ -98,7 +99,8 @@ measurement.temperature_bottom as temperatureBottom,
 measurement.umidity_top as umidityTop,
 measurement.umidity_bottom as umidityBottom,
 measurement.time as time,
-measurement.dropcheck as dropcheck
+measurement.dropcheck as dropcheck,
+measurement.idSilo as idSilo
 FROM
 silo inner join limit_silo on limit_silo.idLimit = silo.idLimit
 inner join block on block.idBlock = silo.idBlock
@@ -111,7 +113,7 @@ WHERE measurement.idMeasurement IN(SELECT idMeasurement
             using var connection = new MySqlConnection(_connectionString);
             return connection.Query<Measurement>(query);
         }
-
+        /*
         public Measurement GetLastMeasurementById(int idSilo)
         {
             const string query = @"
@@ -137,7 +139,7 @@ WHERE measurement.idMeasurement IN(SELECT idMeasurement
 AND measurement.idSilo = @idSilo;";
             using var connection = new MySqlConnection(_connectionString);
             return connection.QueryFirstOrDefault<Measurement>(query, new { idSilo } );
-        }
+        }*/
 
         public IEnumerable<Measurement> GetManyMeasurBySilo(int n, int idSilo) //optional
         {

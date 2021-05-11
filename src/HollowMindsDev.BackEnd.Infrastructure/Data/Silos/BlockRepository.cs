@@ -46,7 +46,8 @@ WHERE idBlock = @idB;";
         {
             const string query = @"
 SELECT
-    name
+    block.idBlock as Id, 
+    name 
 FROM block
 INNER JOIN silo
 ON block.idBlock = silo.idBlock
