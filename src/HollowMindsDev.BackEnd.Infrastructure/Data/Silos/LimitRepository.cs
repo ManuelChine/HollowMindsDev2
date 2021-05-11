@@ -25,7 +25,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -40,7 +40,7 @@ FROM limit_silo;";
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -74,7 +74,7 @@ VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
