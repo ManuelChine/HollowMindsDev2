@@ -48,7 +48,7 @@ SELECT
 FROM limit_silo
 WHERE idLimit = @idL";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, new { id });
+            return connection.QueryFirstOrDefault<Limit>(query, new { idL = id });
         }
 
         public void Delete(int id)
@@ -84,12 +84,22 @@ INNER JOIN silo
 ON limit_silo.idLimit = silo.idLimit
 WHERE silo.idSilo = @idS";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, new { idSilo });
+            return connection.QueryFirstOrDefault<Limit>(query, new { idS = idSilo });
         }
 
         public void Update(Limit model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE limit_silo
+SET temperature = @Temperature,
+    pressure = @Pressure,
+    level_max = @LevelMax,
+    level_min = @LevelMin,
+    umidity =  @Umidity,
+    material = @Material
+WHERE idLimit = @Id;";
+            using var connection = new MySqlConnection(_connectionString);
+            connection.Execute(query, model);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
 {
     public class Block : Entity<int>
     {
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         [Required]
         [StringLength(30)]
         public string Name { get; set; }
