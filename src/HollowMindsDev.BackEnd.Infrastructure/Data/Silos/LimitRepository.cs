@@ -25,7 +25,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -40,7 +40,7 @@ FROM limit_silo;";
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -48,7 +48,7 @@ SELECT
 FROM limit_silo
 WHERE idLimit = @idL";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, new { id });
+            return connection.QueryFirstOrDefault<Limit>(query, new { idL = id });
         }
 
         public void Delete(int id)
@@ -73,8 +73,9 @@ VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
         {
             const string query = @"
 SELECT
+    limit_silo.idLimit as Id,
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -82,14 +83,24 @@ SELECT
 FROM limit_silo
 INNER JOIN silo
 ON limit_silo.idLimit = silo.idLimit
-WHERE silo.idSilo = @idS";
+WHERE silo.idSilo = @id";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, new { idSilo });
+            return connection.QueryFirstOrDefault<Limit>(query, new { id = idSilo });
         }
 
         public void Update(Limit model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE limit_silo
+SET temperature = @Temperature,
+    pressure = @Pressure,
+    level_max = @LevelMax,
+    level_min = @LevelMin,
+    umidity =  @Umidity,
+    material = @Material
+WHERE idLimit = @Id;";
+            using var connection = new MySqlConnection(_connectionString);
+            connection.Execute(query, model);
         }
     }
 }

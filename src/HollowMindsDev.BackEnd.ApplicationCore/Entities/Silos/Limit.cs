@@ -19,7 +19,7 @@ namespace HollowMindsDev.BackEnd.ApplicationCore.Entities.Silos
             ErrorMessage = "Value For Pressure must be between {0} and {1}.")]
         [Required]
         [DataType(DataType.Currency)]
-        public decimal Preassure { get; set; }
+        public decimal Pressure { get; set; }
 
         [Required]
         public int LevelMax { get; set; }

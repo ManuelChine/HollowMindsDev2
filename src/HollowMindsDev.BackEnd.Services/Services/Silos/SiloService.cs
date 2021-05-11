@@ -34,7 +34,7 @@ namespace HollowMindsDev.BackEnd.Services.Services.Silos
 
         public void InsertSilo(Silo model)
         {
-            _siloRepository.Insert(model);
+             _siloRepository.Insert(model);
         }
 
         public void UpdateSilo(Silo model)

@@ -40,12 +40,14 @@ namespace HollowMindsDev.BackEnd.API.Controllers
             return _limitService.LimitBySilo(id);
         }
 
-
+        
         [HttpPost]
         public IActionResult Post(Limit value)
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _limitService.InsertLimit(value);
                 return Ok(new
                 {
@@ -68,6 +70,8 @@ namespace HollowMindsDev.BackEnd.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState); // 400
                 _limitService.UpdateLimit(value);
                 return Ok(new
                 {
