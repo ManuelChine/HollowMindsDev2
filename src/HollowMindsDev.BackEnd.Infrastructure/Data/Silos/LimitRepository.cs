@@ -25,7 +25,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -40,7 +40,7 @@ FROM limit_silo;";
             const string query = @"
 SELECT
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -73,8 +73,9 @@ VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
         {
             const string query = @"
 SELECT
+    limit_silo.idLimit as Id,
     temperature as Temperature,
-    pressure as Preassure,
+    pressure as Pressure,
     level_max as LevelMax,
     level_min as LevelMin,
     umidity as Umidity,
@@ -82,9 +83,9 @@ SELECT
 FROM limit_silo
 INNER JOIN silo
 ON limit_silo.idLimit = silo.idLimit
-WHERE silo.idSilo = @idS";
+WHERE silo.idSilo = @id";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Limit>(query, new { idS = idSilo });
+            return connection.QueryFirstOrDefault<Limit>(query, new { id = idSilo });
         }
 
         public void Update(Limit model)
