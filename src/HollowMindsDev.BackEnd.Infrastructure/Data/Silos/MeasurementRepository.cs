@@ -112,6 +112,7 @@ WHERE measurement.idMeasurement IN(SELECT MAX(idMeasurement)
             using var connection = new MySqlConnection(_connectionString);
             return connection.Query<Measurement>(query);
         }
+
         /*
         public Measurement GetLastMeasurementById(int idSilo)
         {
