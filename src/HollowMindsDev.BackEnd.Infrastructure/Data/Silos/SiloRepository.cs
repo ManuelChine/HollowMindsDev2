@@ -59,29 +59,24 @@ SELECT
             year as YearProd,
             location as Location
             FROM silo
-            WHERE idSilo = @idS;
+            WHERE idSilo = @idSilo;
             ";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<Silo>(query, new { idS = id });
+            return connection.QueryFirstOrDefault<Silo>(query, new { idSilo = id });
         }
 
         public void Insert(Silo model)
         {
             const string query = @"
 INSERT INTO silo (idBlock, idLimit, height, diameter, capacity, year, location)
-VALUES (@idBlock, @idLimit, @height, @diameter, @capacity, @year, @location);";
+VALUES (@IdBlock, @IdLimit, @Height, @Diameter, @Capacity, @Year, @Location);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }
 
         public void Update(Silo model)
         {
-            const string query = @"
-UPDATE silo
-SET idBlock = @idB, idLimit = @idL, height = @high, diameter = @diam, capacity = @cap, year_prod = @year, location = @loc, liquid = @liq
-WHERE idSilo = @idS;";
-            using var connection = new MySqlConnection(_connectionString);
-            connection.Execute(query, model);
+            throw new NotImplementedException();
         }
     }
 }

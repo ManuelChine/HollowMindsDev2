@@ -83,6 +83,7 @@ WHERE idMeasurement = @idM;";
         {
             const string query = @"
             SELECT
+measurement.idMeasurement as Id,
 measurement.sensor0 as Sensor0,
 measurement.sensor1 as Sensor1,
 measurement.sensor2 as Sensor2,
@@ -97,21 +98,22 @@ measurement.temperature_top as temperatureTop,
 measurement.temperature_bottom as temperatureBottom,
 measurement.umidity_top as umidityTop,
 measurement.umidity_bottom as umidityBottom,
-measurement.time as time,
-measurement.dropcheck as dropcheck
+measurement.timeInsert as time,
+measurement.dropcheck as dropcheck,
+measurement.idSilo as idSilo
 FROM
 silo inner join limit_silo on limit_silo.idLimit = silo.idLimit
 inner join block on block.idBlock = silo.idBlock
 inner join measurement on measurement.idSilo = silo.idSilo
-WHERE measurement.idMeasurement IN(SELECT idMeasurement
+WHERE measurement.idMeasurement IN(SELECT MAX(idMeasurement)
                                      FROM measurement
                                      GROUP BY idSilo
-                                     HAVING time = MAX(time)
                                      );";
             using var connection = new MySqlConnection(_connectionString);
             return connection.Query<Measurement>(query);
         }
 
+        /*
         public Measurement GetLastMeasurementById(int idSilo)
         {
             const string query = @"
@@ -137,7 +139,7 @@ WHERE measurement.idMeasurement IN(SELECT idMeasurement
 AND measurement.idSilo = @idSilo;";
             using var connection = new MySqlConnection(_connectionString);
             return connection.QueryFirstOrDefault<Measurement>(query, new { idSilo } );
-        }
+        }*/
 
         public IEnumerable<Measurement> GetManyMeasurBySilo(int n, int idSilo) //optional
         {
@@ -152,8 +154,8 @@ AND measurement.idSilo = @idSilo;";
         public void Insert(Measurement model)
         {
             const string query = @"
-INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, time, dropcheck)
-VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @Sensor7, @Pressure, @Density, @TemperatureTop, @TemperatureBottom, @UmidityTop, @UmidityBottom, @Time, @DropCheck);";
+INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, time, dropcheck, idSilo)
+VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @Sensor7, @Pressure, @Density, @TemperatureTop, @TemperatureBottom, @UmidityTop, @UmidityBottom, @Time, @DropCheck, @IdSilo);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }
