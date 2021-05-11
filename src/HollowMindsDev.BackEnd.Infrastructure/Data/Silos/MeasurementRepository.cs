@@ -98,21 +98,21 @@ measurement.temperature_top as temperatureTop,
 measurement.temperature_bottom as temperatureBottom,
 measurement.umidity_top as umidityTop,
 measurement.umidity_bottom as umidityBottom,
-measurement.time as time,
+measurement.timeInsert as time,
 measurement.dropcheck as dropcheck,
 measurement.idSilo as idSilo
 FROM
 silo inner join limit_silo on limit_silo.idLimit = silo.idLimit
 inner join block on block.idBlock = silo.idBlock
 inner join measurement on measurement.idSilo = silo.idSilo
-WHERE measurement.idMeasurement IN(SELECT idMeasurement
+WHERE measurement.idMeasurement IN(SELECT MAX(idMeasurement)
                                      FROM measurement
                                      GROUP BY idSilo
-                                     HAVING time = MAX(time)
                                      );";
             using var connection = new MySqlConnection(_connectionString);
             return connection.Query<Measurement>(query);
         }
+
         /*
         public Measurement GetLastMeasurementById(int idSilo)
         {
