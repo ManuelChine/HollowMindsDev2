@@ -1,82 +1,36 @@
-*{
+body{
     margin: 0;
     padding: 0;
-    background-image: url(sfondo.jpg);
-}
+    height: 100vh;
+    background-repeat: no-repeat;
+background-position: 0 0;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+  }
 
-.login{
-    padding: 10px;
-    box-sizing:border-box;
-}
-
-.login h1{
+h3{
     text-align: center;
-    padding-top: 20%;
-    padding-bottom: 20px;
-
+    border-bottom: 50px;
 }
 
-.login h3{
-    text-align: center;
-    padding-top: 20px;
+.card-body{
+    height: 350px;
 }
 
-.login input{
+#sendlogin{
     width: 100%;
-    clear: both;
-    height: 25px;
 }
 
-.logo img{
-   display: flex;
-   box-sizing: border-box;
-   width: 100%;
-}
-.box-login{
-    border-radius: 10px 10px 10px 10px;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
-    background: rgba(0,0,0,0.8);
+#reset {
+    width: 100%;
+    background-color:#FFEF00;
+    color:black;
+    border-color: #FFEF00;
 }
 
-@media screen and (max-width: 1200px) {
-    .gallery img {
-        width: 20%;
-        height: 100px;
+@media only screen and (max-width: 900px) {
+    .card-body{
+        height: 400px;
     }
-}
-
-@media screen and (max-width: 1000px) {
-    .gallery img {
-        width: 20%;
-        height: 80px;
-    }
-}
-
-
-
-@media screen and (max-width: 900px) {
-    .gallery img {
-        width: 20%;
-        height: 70px;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .gallery img {
-        width: 20%;
-        height: 60px;
-    }
-}
-
-@media screen and (max-width: 600px){
-    .gallery img{
-        width: 25%;
-        flex-flow: column wrap;
-    }
-}
+  }
