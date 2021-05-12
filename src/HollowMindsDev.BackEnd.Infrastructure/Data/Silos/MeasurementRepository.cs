@@ -19,7 +19,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
         {
             _connectionString = configuration.GetConnectionString("Database");
         }
-        public void Delete(int id)
+        public void Delete(int id) //Query che elimina un elemento in base al id dato dall'utente
         {
             const string query = @"
 DELETE FROM measurement
@@ -28,7 +28,7 @@ WHERE idMeasurement = @idM;";
             connection.Execute(query, new { idM = id });
         }
 
-        public IEnumerable<Measurement> GetAll()
+        public IEnumerable<Measurement> GetAll() //Query che fa visualizzare tutti gli elementi presenti nella tabella
         {
             const string query = @"
 SELECT
@@ -53,7 +53,7 @@ FROM measurement;";
             return connection.Query<Measurement>(query);
         }
 
-        public Measurement GetById(int id)
+        public Measurement GetById(int id) //Query utilizzata per visualizzare un singolo elemento in base all'id inserito dall'utente
         {
             const string query = @"
 SELECT
@@ -79,7 +79,7 @@ WHERE idMeasurement = @idM;";
             return connection.QueryFirstOrDefault<Measurement>(query, new { idM = id});
         }
 
-        public IEnumerable<Measurement> GetLastMeasurement()
+        public IEnumerable<Measurement> GetLastMeasurement() //Query utilizzata per visualizzare l'ultima misurazione di ogni silo
         {
             const string query = @"
             SELECT
@@ -152,7 +152,7 @@ AND measurement.idSilo = @idSilo;";
             throw new NotImplementedException();
         }
 
-        public void Insert(Measurement model)
+        public void Insert(Measurement model)   //Query per inserire un nuovo elemento
         {
             const string query = @"
 INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, timeInsert, dropcheck, idSilo)
@@ -161,7 +161,7 @@ VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @S
             connection.Execute(query, model);
         }
 
-        public void Update(Measurement model)
+        public void Update(Measurement model)   //Query utilizzata per modificare un determinato elemento in base all'id indicato dall'utente
         {
             const string query = @"
 UPDATE measurement
