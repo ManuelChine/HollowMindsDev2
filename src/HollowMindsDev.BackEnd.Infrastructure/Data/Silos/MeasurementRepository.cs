@@ -19,7 +19,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
         {
             _connectionString = configuration.GetConnectionString("Database");
         }
-        public void Delete(int id)
+        public void Delete(int id) //Query che elimina un elemento in base al id dato dall'utente
         {
             const string query = @"
 DELETE FROM measurement
@@ -28,7 +28,7 @@ WHERE idMeasurement = @idM;";
             connection.Execute(query, new { idM = id });
         }
 
-        public IEnumerable<Measurement> GetAll()
+        public IEnumerable<Measurement> GetAll() //Query che fa visualizzare tutti gli elementi presenti nella tabella
         {
             const string query = @"
 SELECT
@@ -46,14 +46,14 @@ SELECT
     temperature_bottom as TemperatureBottom,
     umidity_top as UmidityTop,
     umidity_bottom as UmidityBottom,
-    time as Time,
+    timeInsert as Time,
     dropcheck as DropCheck
 FROM measurement;";
             using var connection = new MySqlConnection(_connectionString);
             return connection.Query<Measurement>(query);
         }
 
-        public Measurement GetById(int id)
+        public Measurement GetById(int id) //Query utilizzata per visualizzare un singolo elemento in base all'id inserito dall'utente
         {
             const string query = @"
 SELECT
@@ -71,7 +71,7 @@ SELECT
     temperature_bottom as TemperatureBottom,
     umidity_top as UmidityTop,
     umidity_bottom as UmidityBottom,
-    time as Time,
+    timeInsert as Time,
     dropcheck as DropCheck
 FROM measurement
 WHERE idMeasurement = @idM;";
@@ -79,7 +79,7 @@ WHERE idMeasurement = @idM;";
             return connection.QueryFirstOrDefault<Measurement>(query, new { idM = id});
         }
 
-        public IEnumerable<Measurement> GetLastMeasurement()
+        public IEnumerable<Measurement> GetLastMeasurement() //Query utilizzata per visualizzare l'ultima misurazione di ogni silo
         {
             const string query = @"
             SELECT
@@ -114,6 +114,7 @@ WHERE measurement.idMeasurement IN(SELECT MAX(idMeasurement)
         }
 
         /*
+         * 
         public Measurement GetLastMeasurementById(int idSilo)
         {
             const string query = @"
@@ -125,7 +126,7 @@ measurement.temperature_top as temperatureTop,
 measurement.temperature_bottom as temperatureBottom,
 measurement.umidity_top as umidityTop,
 measurement.umidity_bottom as umidityBottom,
-measurement.time as time,
+measurement.timeInsert as time,
 measurement.dropcheck as dropcheck
 FROM
 silo inner join limit_silo on limit_silo.idLimit = silo.idLimit
@@ -151,16 +152,16 @@ AND measurement.idSilo = @idSilo;";
             throw new NotImplementedException();
         }
 
-        public void Insert(Measurement model)
+        public void Insert(Measurement model)   //Query per inserire un nuovo elemento
         {
             const string query = @"
-INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, time, dropcheck, idSilo)
+INSERT INTO measurement ( sensor0, sensor1, sensor2, sensor3, sensor4, sensor5, sensor6, sensor7, pressure, density, temperature_top, temperature_bottom, umidity_top, umidity_bottom, timeInsert, dropcheck, idSilo)
 VALUES (@Sensor0, @Sensor1, @Sensor2, @Sensor3, @Sensor4, @Sensor5, @Sensor6, @Sensor7, @Pressure, @Density, @TemperatureTop, @TemperatureBottom, @UmidityTop, @UmidityBottom, @Time, @DropCheck, @IdSilo);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }
 
-        public void Update(Measurement model)
+        public void Update(Measurement model)   //Query utilizzata per modificare un determinato elemento in base all'id indicato dall'utente
         {
             const string query = @"
 UPDATE measurement
@@ -178,7 +179,7 @@ SET sensor0 = @Sensor0,
     temperature_bottom = @TemperatureBottom, 
     umidity_top = @UmidityTop,
     umidity_bottom = @UmidityBottom, 
-    time = @Time,
+    timeInsert = @Time,
     dropcheck = @DropCheck
 WHERE idMeasurement = @Id;";
             using var connection = new MySqlConnection(_connectionString);

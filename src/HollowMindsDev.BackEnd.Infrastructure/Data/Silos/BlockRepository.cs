@@ -21,7 +21,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
             _connectionString = configuration.GetConnectionString("Database");
         }
 
-        public IEnumerable<Block> GetAll()
+        public IEnumerable<Block> GetAll()  //Query che fa visualizzare tutti gli elementi presenti nella tabella
         {
             const string query = @"
 SELECT
@@ -31,7 +31,7 @@ FROM block;";
             return connection.Query<Block>(query);
         }
 
-        public Block GetById(int id)
+        public Block GetById(int id)    //Query utilizzata per visualizzare un singolo elemento in base all'id inserito dall'utente
         {
             const string query = @"
 SELECT
@@ -42,7 +42,7 @@ WHERE idBlock = @idB;";
             return connection.QueryFirstOrDefault<Block>(query, new { idB = id });
         }
 
-        public Block BlockBySilo(int idSilo)
+        public Block BlockBySilo(int idSilo)    //Query utilizzata per vedere a che blocco appartiente un determinato silo in base all'id di quest'ultimo inserito dall'utente
         {
             const string query = @"
 SELECT
@@ -56,14 +56,14 @@ WHERE silo.idSilo = @idS;";
             return connection.QueryFirstOrDefault<Block>(query, new { idS = idSilo });
         }
 
-        public void Delete(int id)
+        public void Delete(int id)  //Query che elimina un elemento in base al id dato dall'utente
         {
             const string query = @"DELETE FROM block WHERE idBlock = @id;";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, new { Id = id });
         }
 
-        public void Insert(Block model)
+        public void Insert(Block model) //Query per inserire un nuovo elemento
         {
             const string query = @"
 INSERT INTO block (name)
@@ -72,7 +72,7 @@ VALUES (@Name);";
             connection.Execute(query, model);
         }
 
-        public void Update(Block model)
+        public void Update(Block model) //Query utilizzata per modificare un determinato elemento in base all'id indicato dall'utente
         {
             const string query = @"
 UPDATE block
