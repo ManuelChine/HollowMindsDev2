@@ -114,6 +114,7 @@ WHERE measurement.idMeasurement IN(SELECT MAX(idMeasurement)
         }
 
         /*
+         * 
         public Measurement GetLastMeasurementById(int idSilo)
         {
             const string query = @"
