@@ -20,7 +20,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Silos
             _connectionString = configuration.GetConnectionString("Database");
         }
 
-        public IEnumerable<Limit> GetAll()
+        public IEnumerable<Limit> GetAll()  //Query che fa visualizzare tutti gli elementi presenti nella tabella
         {
             const string query = @"
 SELECT
@@ -35,7 +35,7 @@ FROM limit_silo;";
             return connection.Query<Limit>(query);
         }
 
-        public Limit GetById(int id)
+        public Limit GetById(int id)    //Query utilizzata per visualizzare un singolo elemento in base all'id inserito dall'utente
         {
             const string query = @"
 SELECT
@@ -51,7 +51,7 @@ WHERE idLimit = @idL";
             return connection.QueryFirstOrDefault<Limit>(query, new { idL = id });
         }
 
-        public void Delete(int id)
+        public void Delete(int id)  //Query che elimina un elemento in base al id dato dall'utente
         {
             const string query = @"
 DELETE FROM limit_silo
@@ -60,7 +60,7 @@ WHERE idLimit = @idL;";
             connection.Execute(query, new { idL = id });
         }
 
-        public void Insert(Limit model)
+        public void Insert(Limit model) //Query per inserire un nuovo elemento
         {
             const string query = @"
 INSERT INTO limit_silo (temperature, umidity, pressure, level_max, level_min, material)
@@ -69,7 +69,7 @@ VALUES (@Temperature, @Umidity, @Pressure, @LevelMax, @LevelMin, @Material);";
             connection.Execute(query, model);
         }
 
-        public Limit LimitBySilo(int idSilo)
+        public Limit LimitBySilo(int idSilo) //Query utilizzata per vedere il limite di un determinato silo
         {
             const string query = @"
 SELECT
@@ -88,7 +88,7 @@ WHERE silo.idSilo = @id";
             return connection.QueryFirstOrDefault<Limit>(query, new { id = idSilo });
         }
 
-        public void Update(Limit model)
+        public void Update(Limit model) //Query utilizzata per modificare un determinato elemento in base all'id indicato dall'utente
         {
             const string query = @"
 UPDATE limit_silo
