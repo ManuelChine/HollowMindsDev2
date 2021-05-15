@@ -37,14 +37,14 @@ function getRandom(min, max) {
 
 
 //creare lista di date in cui salvare le ultime ore in cui solo avvenuti dei decrementi
-const lastDecrement = [];
+var lastDecrement = [];
 const n = 21600000; //6 ore
-var checkIncr =  true;
+var checkIncr =  [];
 
 const link = 'http://localhost:42079/api/';
 
-async function decrement(time, link) {
-    //setTimeout(async function(link) {
+async function decrement(time) {
+    setTimeout(async function() {
         const res = await got(link + 'ViewModel');
         var list = JSON.parse(res.body);
         //console.log(list[1]); for debug
@@ -58,6 +58,7 @@ async function decrement(time, link) {
             
             if(lastDecrement.length===i){
                 lastDecrement.push(1);
+                checkIncr.push(true);
             }
 
             const now = Date.now();
@@ -107,23 +108,25 @@ async function decrement(time, link) {
                 })
 
             //se il contatore dei livelli è a 0 far partire l'incremento
-            if(sensors[0]===0 && checkIncr){
+            if(sensors[0]===0 && checkIncr[i]){
                 //settare un variabile per fare in modo che la funzione non venga fatta partire più volte, 
                 //causa: la funzione è asincrono e ci mette 5 min ma il controllo è ripetuto ogni min
-                checkIncr = false;
+                checkIncr[i] = false;
                 //richiamre funzione incremento
-                
+                increment(time2, list[i], i);
             }
         };
-   // }, time);
+    }, time);
 }
 
 
 //funzione finale in cui partiranno tutte le attese
 (async function(){
     try{
-        decrement(time1, link);
-        //errorGenerator(time3, link);
+        //while(true){
+            decrement(time1);
+            errorGenerator(time3);
+        //}
     } catch(e) {
         console.log('errore');
     }
@@ -131,8 +134,8 @@ async function decrement(time, link) {
 })();
 //l'attesa DEVE essere ASINCRONA (da controllare)
 
-async function errorGenerator(time, link) {
-    //setTimeout(async function(link) {
+async function errorGenerator(time) {
+    setTimeout(async function() {
         const res = await got(link + 'ViewModel');
         var list = JSON.parse(res.body);
         //console.log(list[1]); for debug
@@ -171,5 +174,45 @@ async function errorGenerator(time, link) {
                     console.error(error)
                 })
         };
-   // }, time);
+    }, time);
+}
+
+async function increment(time, model, i) {
+    setTimeout(async function() {
+        
+        //composizione dell'oggetto: dati casuali NON compresi tra i limiti
+        const result = {
+            sensor0: 1,
+            sensor1: 1,
+            sensor2: 1,
+            sensor3: 1,
+            sensor4: 1,
+            sensor5: 1,
+            sensor6: 1,
+            sensor7: 1,
+            pressure: getRandom(model.limit.pressure*0.95, model.limit.pressure*1.05),
+            temperatureTop: getRandom(model.limit.temperature*0.95, model.limit.temperature*1.05),
+            temperatureBottom: getRandom(model.limit.temperature*0.95, model.limit.temperature*1.05),
+            umidityTop: getRandom(model.limit.umidity*0.95, model.limit.umidity*1.05),
+            umidityBottom: getRandom(model.limit.umidity*0.95, model.limit.umidity*1.05),
+            time: currentDateTime(),
+            dropCheck: 0,//non implementato, il sensore reale non è in grado di gestirlo. Lascio il valore di dafault
+            idSilo: model.measurement.idSilo
+        };
+
+        // console.log(result); only for debug
+
+        //uso API di inserimento measurement
+        axios
+            .post(link + 'Measurement', JSON.parse(JSON.stringify(result)))
+            .then((res) => {
+                console.log(`statusCode: ${res.statusCode}`)
+                console.log(res)
+            })
+            .catch((error) => {
+                console.error(error)
+            });
+
+        checkIncr[i] = true;
+    }, time);
 }
