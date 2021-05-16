@@ -1,10 +1,14 @@
 using HollowMindsDev.BackEnd.ApplicationCore.Interfaces.ISilos;
+using HollowMindsDev.BackEnd.ApplicationCore.Interfaces.IUsers;
 using HollowMindsDev.BackEnd.Infrastructure.Data.Silos;
+using HollowMindsDev.BackEnd.Infrastructure.Data.Users;
 using HollowMindsDev.BackEnd.Services.Interfaces.Allert;
 using HollowMindsDev.BackEnd.Services.Interfaces.ISilos;
+using HollowMindsDev.BackEnd.Services.Interfaces.IUsers;
 using HollowMindsDev.BackEnd.Services.Interfaces.ViewModel;
 using HollowMindsDev.BackEnd.Services.Services.Allert;
 using HollowMindsDev.BackEnd.Services.Services.Silos;
+using HollowMindsDev.BackEnd.Services.Services.Users;
 using HollowMindsDev.BackEnd.Services.Services.ViewModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +50,7 @@ namespace HollowMindsDev.BackEnd.API
 
             services.AddTransient<IBlockRepository, BlockRepository>();
             services.AddTransient<ILimitRepository, LimitRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
 
             services.AddTransient<ISiloService, SiloService>();
             services.AddTransient<IMeasurementService, MeasurementService>();
@@ -54,6 +59,7 @@ namespace HollowMindsDev.BackEnd.API
 
             services.AddTransient<IBlockService, BlockService>();
             services.AddTransient<ILimitService, LimitService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
