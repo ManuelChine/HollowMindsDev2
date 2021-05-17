@@ -20,7 +20,11 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Users
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            const string query = @"
+DELETE FROM user
+WHERE idUser = @idU;";
+            using var connection = new MySqlConnection(_connectionString);
+            return connection.Execute(query, new { idU = id });
         }
 
         public IEnumerable<User> GetAll()//  !!! non implementatelo 
@@ -30,7 +34,18 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Users
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+    idUser,
+    mail,
+    password,
+    isAdmin,
+    name,
+    surname
+FROM user
+WHERE idUser = idU;";
+            using var connection = new MySqlConnection(_connectionString);
+            return connection.Execute(query, new { idU = id });
         }
 
         public bool IfIsAdmin(string mail)
