@@ -45,24 +45,47 @@ SELECT
     name,
     surname
 FROM user
-WHERE idUser = idU;";
+WHERE idUser = @idU;";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.Execute(query, new { idU = id });
+            return connection.QueryFirstOrDefault<User>(query, new { idU = id });
         }
 
         public bool IfIsAdmin(string mail)
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+    idUser,
+    mail,
+    password,
+    isAdmin,
+    name,
+    surname
+FROM user
+WHERE isUser = 1;";
+            return true; //da completare
         }
 
         public void Insert(User model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+INSERT INTO user (idUser, mail, password, isAdmin, name, surname)
+VALUES (@IdUser, @Mail, @Password, @IsAdmin, @Name, @Surname);";
+            using var connection = new MySqlConnection(_connectionString);
+            connection.Execute(query, model);
         }
 
         public void Update(User model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE user
+SET mail = @Mail,
+    password = @Password,
+    isAdmin = @IsAdmin,
+    name = @Name,
+    surname = @Surname
+WHERE idUser = @Id;";
+            using var connection = new MySqlConnection(_connectionString);
+            connection.Execute(query, model);
         }
     }
 }
