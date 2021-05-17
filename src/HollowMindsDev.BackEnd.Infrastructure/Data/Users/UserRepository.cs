@@ -1,6 +1,8 @@
-﻿using HollowMindsDev.BackEnd.ApplicationCore.Entities.Users;
+﻿using Dapper;
+using HollowMindsDev.BackEnd.ApplicationCore.Entities.Users;
 using HollowMindsDev.BackEnd.ApplicationCore.Interfaces.IUsers;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,7 @@ namespace HollowMindsDev.BackEnd.Infrastructure.Data.Users
 DELETE FROM user
 WHERE idUser = @idU;";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.Execute(query, new { idU = id });
+            connection.Execute(query, new { idU = id });
         }
 
         public IEnumerable<User> GetAll()//  !!! non implementatelo 
