@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HollowMindsDev.BackEnd.ApplicationCore\HollowMindsDev.BackEnd.ApplicationCore.csproj" />
+    <ProjectReference Include="..\HollowMindsDev.BackEnd.Infrastructure\HollowMindsDev.BackEnd.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
