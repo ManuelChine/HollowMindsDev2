@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    opacity: 85%;
+  }
+
+
+@media only screen and (min-width: 1000px) {
+    .container{
+        max-width: 30%;
+   
+} 
+  }
+
