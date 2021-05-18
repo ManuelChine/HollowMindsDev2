@@ -44,7 +44,7 @@ var checkIncr =  [];
 const link = 'http://localhost:42079/api/';
 
 async function decrement(time) {
-    await sleep(2000);//TIME
+    await sleep(time);
     const res = await got(link + 'ViewModel');
     var list = JSON.parse(res.body);
     //console.log(list[1]); for debug
@@ -102,7 +102,7 @@ async function decrement(time) {
 
         //uso API di inserimento measurement
         axios
-            .post(link + 'Measurement', JSON.parse(JSON.stringify(result)))
+            .post(link + 'Measurement', result)
             .then((res) => {
                 console.log(`statusCode: ${res.statusCode}`)
                 console.log(res)
@@ -131,7 +131,7 @@ async function decrement(time) {
             //await errorGenerator(time3);
         }
     } catch(e) {
-        console.log('errore');
+        console.log('errore\n', e);
     }
     
 })();
@@ -168,7 +168,7 @@ async function errorGenerator(time) {
 
         //uso API di inserimento measurement
         axios
-            .post(link + 'Measurement', JSON.parse(JSON.stringify(result)))
+            .post(link + 'Measurement', result)
             .then((res) => {
                 console.log(`statusCode: ${res.statusCode}`)
                 console.log(res)
@@ -206,7 +206,7 @@ async function increment(time, model, i) {
 
     //uso API di inserimento measurement
     axios
-        .post(link + 'Measurement', JSON.parse(JSON.stringify(result)))
+        .post(link + 'Measurement', result)
         .then((res) => {
             console.log(`statusCode: ${res.statusCode}`)
             console.log(res)
