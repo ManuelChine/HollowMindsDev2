@@ -11,88 +11,65 @@ using System.Threading.Tasks;
 
 namespace HollowMindsDev.BackEnd.Infrastructure.Data.Users
 {
-    public class UserRepository : IUserRepository
+    public class AdminRepository : IAdminRepository
     {
         private readonly string _connectionString;
 
-        public UserRepository(IConfiguration configuration)
+        public AdminRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("Database");
         }
-
         public void Delete(int id)
         {
             const string query = @"
-DELETE FROM user
-WHERE idUser = @idU;";
+DELETE FROM administrator
+WHERE idAdmin = @idA;";
             using var connection = new MySqlConnection(_connectionString);
-            connection.Execute(query, new { idU = id });
+            connection.Execute(query, new { idA = id });
         }
 
-        public IEnumerable<User> GetAll()//  !!! non implementatelo 
-        {
-            throw new NotImplementedException();
-        }
-
-        public User GetById(int id)
+        public IEnumerable<Admin> GetAll()
         {
             const string query = @"
 SELECT
-    idUser,
-    mail,
-    password,
-    isAdmin,
-    name,
-    surname
-FROM user
-WHERE idUser = @idU;";
+    mail as EMail
+FROM administrator;";
             using var connection = new MySqlConnection(_connectionString);
-            return connection.QueryFirstOrDefault<User>(query, new { idU = id });
+            return connection.Query<Admin>(query);
         }
 
-        public bool IfIsAdmin(string mail)
+        public Admin GetById(int id)
         {
             const string query = @"
 SELECT
-    idUser,
-    mail,
-    password,
-    isAdmin,
-    name,
-    surname
-FROM user
-WHERE isAdmin = 1
-AND mail = @mail;";
+    mail as EMail
+FROM administrator
+WHERE idAdmin = @idA;";
             using var connection = new MySqlConnection(_connectionString);
-            var x = connection.QueryFirstOrDefault<User>(query, mail);
-            if (x==null)
-            {
-                return false;
-            }else
-            {
-                return true;
-            }
+            return connection.QueryFirstOrDefault<Admin>(query);
         }
 
-        public void Insert(User model)
+        public bool IfIsAdmin(string mail) //Opzionale
+        {
+            //int x = 2;
+            return true;
+        }
+
+        public void Insert(Admin model)
         {
             const string query = @"
-INSERT INTO user (idUser, mail, password, isAdmin, name, surname)
-VALUES (@IdUser, @Mail, @Password, @IsAdmin, @Name, @Surname);";
+INSERT INTO administrator (mail)
+VALUES (@email);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }
 
-        public void Update(User model)
+        public void Update(Admin model)
         {
             const string query = @"
-UPDATE user
-SET mail = @Mail,
-    password = @Password,
-    isAdmin = @IsAdmin,
-    name = @Name,
-    surname = @Surname
-WHERE idUser = @Id;";
+UPDATE administrator
+SET mail = @email
+WHERE idAdmin = @Id;";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }

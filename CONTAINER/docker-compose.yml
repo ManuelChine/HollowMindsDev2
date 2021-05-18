@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  database:
+    image: "mysql:latest"
+    container_name: "HollowMindsDev_Database"
+    hostname: "HollowMindsDev_Database"
+    env_file:
+      - ./env/database.env
+    volumes:
+      - my-db:/var/lib/mysql # ciao ti amo volume per il db
+      - my-db_config:/etc/mysql #volume per la configurazione db
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # passo il dump
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+  web:
+    container_name: web
+    build:
+      context: ..
+    ports:
+      - "8080:80"
+
+volumes:
+  my-db:
+  my-db_config:
