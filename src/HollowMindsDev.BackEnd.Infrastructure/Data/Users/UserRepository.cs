@@ -61,8 +61,17 @@ SELECT
     name,
     surname
 FROM user
-WHERE isUser = 1;";
-            return true; //da completare
+WHERE isAdmin = 1
+AND mail = @mail;";
+            using var connection = new MySqlConnection(_connectionString);
+            var x = connection.QueryFirstOrDefault<User>(query, mail);
+            if (x==null)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
         }
 
         public void Insert(User model)
