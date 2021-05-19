@@ -68,8 +68,8 @@ SELECT
         public void Insert(Silo model) //Query per inserire un nuovo elemento
         {
             const string query = @"
-INSERT INTO silo (idBlock, idLimit, height, diameter, capacity, year, location)
-VALUES (@IdBlock, @IdLimit, @Height, @Diameter, @Capacity, @Year, @Location);";
+    INSERT INTO silo (idBlock, idLimit, height, diameter, capacity, year, location)
+    VALUES (@IdBlock, @IdLimit, @Height, @Diameter, @Capacity, @Year, @Location);";
             using var connection = new MySqlConnection(_connectionString);
             connection.Execute(query, model);
         }
