@@ -1,0 +1,315 @@
+﻿@page
+@model HollowMindsDev.BackEnd.WebApp.Pages.Shared.mainDashBoard.adminDashModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/dashStyle.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="color:white">
+            <div class="col-12">
+                <h1 style="color: white; text-align: center; margin-top:20px; margin-bottom:50px;">Admin Silos Control Panel</h1>
+            </div>
+            <div>
+                <a href="addUser.html" class="btn">Add User</a>
+                <a href="settingLevel.html" class="btn">Level Settings</a>
+            </div>
+
+        </div>
+
+        <div class="row" style="color:white">
+            <div class="col-sm">
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="./Pages/Shared/DashBoardSilos/Dash1.cshtml" target="_blank">Silos 1</a></h3>
+                <script>
+
+                    silos1 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
+
+                    document.write(
+                        '<div class="silos1">',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="8">Level 7</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="7">Level 6</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="6">Level 5</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="5">Level 4</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="4">Level 3</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="3">Level 2</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="2">Level 1</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="1">Level 0</div>',
+                        '</div>'
+                    );
+
+                    var cont = 0;
+
+                    for (var i = 0; i < 8; i++) {
+                        cont++;
+                        if (silos1[i] == true) {
+                            var a = document.getElementById(cont);
+                            a.style.backgroundColor = "green";
+                        } else {
+                            var a = document.getElementById(cont);
+                            a.style.backgroundColor = "red";
+                        }
+                    }
+                </script>
+            </div>
+
+            <div class="col-sm">
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos2.html" target="_blank">Silos 2</a></h3>
+                <script>
+
+                    silos2 = new Array(sens1 = true, sens2 = true, sens3 = false, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
+
+                    document.write(
+                        '<div class="silos2">',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="16">Level 7</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="15">Level 6</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="14">Level 5</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="13">Level 4</div>',
+                        '<div style="width: 200px; heig+ht:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="12">Level 3</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="11">Level 2</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="10">Level 1</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="9">Level 0</div>',
+                        '</div>'
+                    );
+
+                    var cont = 8;
+
+                    for (var i = 0; i < 8; i++) {
+                        cont++;
+                        if (silos2[i] == true) {
+                            var a = document.getElementById(cont);
+                            a.style.backgroundColor = "green";
+                        } else {
+                            var a = document.getElementById(cont);
+                            a.style.backgroundColor = "red";
+                        }
+                    }
+                </script>
+            </div>
+
+            <div class="col-sm">
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos3.html" target="_blank">Silos 3</a></h3>
+                <script>
+
+                    silos3 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = false, sens8 = false);
+
+                    document.write(
+                        '<div class="silos3">',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="24">Level 7</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="23">Level 6</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="22">Level 5</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="21">Level 4</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="20">Level 3</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="19">Level 2</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="18">Level 1</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="17">Level 0</div>',
+                        '</div>'
+                    );
+
+                    var cont3 = 16;
+
+                    for (var i = 0; i < 8; i++) {
+                        cont3++;
+                        if (silos3[i] == true) {
+                            var a = document.getElementById(cont3);
+                            a.style.backgroundColor = "green";
+                        } else {
+                            var a = document.getElementById(cont3);
+                            a.style.backgroundColor = "red";
+                        }
+                    }
+                </script>
+            </div>
+
+            <div class="col-sm">
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos4.html" target="_blank">Silos 4</a></h3>
+                <script>
+
+                    silos4 = new Array(sens1 = true, sens2 = false, sens3 = false, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
+
+                    document.write(
+                        '<div class="silos4">',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="32">Level 7</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="31">Level 6</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="30">Level 5</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="29">Level 4</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="28">Level 3</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="27">Level 2</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="26">Level 1</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="25">Level 0</div>',
+                        '</div>'
+                    );
+                    var cont4 = 24;
+                    for (var i = 0; i < 8; i++) {
+                        cont4++;
+                        if (silos4[i] == true) {
+                            var a = document.getElementById(cont4);
+                            a.style.backgroundColor = "green";
+                        } else {
+                            var a = document.getElementById(cont4);
+                            a.style.backgroundColor = "red";
+                        }
+                    }
+                </script>
+            </div>
+            <div class="container">
+                <div class="row" style="color:white">
+                    <div class="col-12">
+                        <h1 style="color: white; text-align: center; margin-top:20px; margin-bottom:50px;"></h1>
+                    </div>
+                </div>
+
+                <div class="row" style="color:white">
+                    <div class="col-sm">
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos5.html" target="_blank">Silos 5</a></h3>
+                        <script>
+
+                        silos5 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = true, sens8 = true);
+
+                        document.write(
+                            '<div class="silos5">',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="40">Level 7</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="39">Level 6</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="38">Level 5</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="37">Level 4</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="36">Level 3</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="35">Level 2</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="34">Level 1</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="33">Level 0</div>',
+                            '</div>'
+                        );
+
+                        var cont = 32;
+
+                        for (var i = 0; i < 8; i++) {
+                            cont++;
+                            if (silos5[i] == true) {
+                                var a = document.getElementById(cont);
+                                a.style.backgroundColor = "green";
+                            } else {
+                                var a = document.getElementById(cont);
+                                a.style.backgroundColor = "red";
+                            }
+                        }
+                        </script>
+                    </div>
+
+                    <div class="col-sm">
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos6.html" target="_blank">Silos 6</a></h3>
+                        <script>
+
+                        silos6 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
+
+                        document.write(
+                            '<div class="silos6">',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="48">Level 7</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="47">Level 6</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="46">Level 5</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="45">Level 4</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="44">Level 3</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="43">Level 2</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="42">Level 1</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="41">Level 0</div>',
+                            '</div>'
+                        );
+
+                        var cont = 40;
+
+                        for (var i = 0; i < 8; i++) {
+                            cont++;
+                            if (silos6[i] == true) {
+                                var a = document.getElementById(cont);
+                                a.style.backgroundColor = "green";
+                            } else {
+                                var a = document.getElementById(cont);
+                                a.style.backgroundColor = "red";
+                            }
+                        }
+                        </script>
+                    </div>
+
+                    <div class="col-sm">
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos7.html" target="_blank">Silos 7</a></h3>
+                        <script>
+
+                        silos7 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = false, sens8 = false);
+
+                        document.write(
+                            '<div class="silos7">',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="56">Level 7</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="55">Level 6</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="54">Level 5</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="53">Level 4</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="52">Level 3</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="51">Level 2</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="50">Level 1</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="49">Level 0</div>',
+                            '</div>'
+                        );
+
+                        var cont7 = 48;
+
+                        for (var i = 0; i < 8; i++) {
+                            cont7++;
+                            if (silos7[i] == true) {
+                                var a = document.getElementById(cont7);
+                                a.style.backgroundColor = "green";
+                            } else {
+                                var a = document.getElementById(cont7);
+                                a.style.backgroundColor = "red";
+                            }
+                        }
+                        </script>
+                    </div>
+
+                    <div class="col-sm">
+                        <h3><a style="color:#FFFFFF;text-decoration:none; " href="DashboardSilos8.html" target="_blank">Silos 8</a></h3>
+                        <script>
+
+                        silos8 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = true, sens8 = false);
+
+                        document.write(
+                            '<div class="silos8">',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="64">Level 7</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="63">Level 6</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="62">Level 5</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="61">Level 4</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="60">Level 3</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="59">Level 2</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="58">Level 1</div>',
+                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="57">Level 0</div>',
+                            '</div>'
+                        );
+                        var cont8 = 56;
+                        for (var i = 0; i < 8; i++) {
+                            cont8++;
+                            if (silos8[i] == true) {
+                                var a = document.getElementById(cont8);
+                                a.style.backgroundColor = "green";
+                            } else {
+                                var a = document.getElementById(cont8);
+                                a.style.backgroundColor = "red";
+                            }
+                        }
+                        </script>
+                    </div>
+
+                </div>
+
+</body>
+
+</html>
