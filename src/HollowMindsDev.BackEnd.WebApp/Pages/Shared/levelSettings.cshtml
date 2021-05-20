@@ -1,0 +1,90 @@
+﻿@page
+@model HollowMindsDev.BackEnd.WebApp.Pages.Shared.levelSettingsModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Settings</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="addUserLogin.css">
+</head>
+<body background="silosBg.jpg">
+    <div class="container">
+        <br>
+        <br>
+
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Level Settings</h4>
+                <form>
+                    <div class="form-group input-group">
+                        <select class="custom-select">
+                            <option selected="">Select Silos</option>
+                            <option value="1">Silos 1</option>
+                            <option value="2">Silos 2</option>
+                            <option value="3">Silos 3</option>
+                            <option value="4">Silos 4</option>
+                            <option value="5">Silos 5</option>
+                            <option value="6">Silos 6</option>
+                            <option value="7">Silos 7</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group input-group">
+                        <input type="number" name="" id="temp" class="form-control" placeholder="Temperature">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <input name="" id="Hum" class="form-control" placeholder="Humidity" type="number">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <input name="" id="press" class="form-control" placeholder="Pressure" type="number">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <select class="custom-select">
+                            <option selected="">Level Max</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                            <option value="7">6</option>
+                            <option value="7">7</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group input-group">
+                        <select class="custom-select">
+                            <option selected="">Level Min</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                            <option value="7">6</option>
+                            <option value="7">7</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group input-group">
+                        <input class="form-control" placeholder="Material" type="text">
+                    </div> <!-- form-group// -->
+
+
+                </form>
+            </article>
+        </div> <!-- card.// -->
+
+    </div>
+    <!--container end.//-->
+
+</body>
+</html>

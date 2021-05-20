@@ -1,5 +1,5 @@
 ﻿@page
-@model HollowMindsDev.BackEnd.WebApp.Pages.Shared.mainDashBoard.adminDashModel
+@model HollowMindsDev.BackEnd.WebApp.Pages.Shared.userDashModel
 @{
 }
 
@@ -17,24 +17,28 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/dashStyle.css">
     <title>Dashboard</title>
+    <style>
+        body {
+            background-color: #252830;
+        }
+
+       
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row" style="color:white">
             <div class="col-12">
-                <h1 style="color: white; text-align: center; margin-top:20px; margin-bottom:50px;">Admin Silos Control Panel</h1>
+                <h1 style="color: white; text-align: center; margin-top:20px; margin-bottom:50px;">
+                    Silos Control Panel
+                </h1>
             </div>
-            <div>
-                <a href="addUser.html" class="btn">Add User</a>
-                <a href="settingLevel.html" class="btn">Level Settings</a>
-            </div>
-
         </div>
 
         <div class="row" style="color:white">
             <div class="col-sm">
-                <h3><a style="color:#FFFFFF;text-decoration:none;" href="./Pages/Shared/DashBoardSilos/Dash1.cshtml" target="_blank">Silos 1</a></h3>
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash1")" target="_blank">Silos 1</a></h3>
                 <script>
 
                     silos1 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
@@ -68,7 +72,7 @@
             </div>
 
             <div class="col-sm">
-                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos2.html" target="_blank">Silos 2</a></h3>
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash2")" target="_blank">Silos 2</a></h3>
                 <script>
 
                     silos2 = new Array(sens1 = true, sens2 = true, sens3 = false, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
@@ -79,7 +83,7 @@
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="15">Level 6</div>',
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="14">Level 5</div>',
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="13">Level 4</div>',
-                        '<div style="width: 200px; heig+ht:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="12">Level 3</div>',
+                        '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="12">Level 3</div>',
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="11">Level 2</div>',
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="10">Level 1</div>',
                         '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="9">Level 0</div>',
@@ -102,7 +106,7 @@
             </div>
 
             <div class="col-sm">
-                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos3.html" target="_blank">Silos 3</a></h3>
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash3")" target="_blank">Silos 3</a></h3>
                 <script>
 
                     silos3 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = false, sens8 = false);
@@ -136,7 +140,7 @@
             </div>
 
             <div class="col-sm">
-                <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos4.html" target="_blank">Silos 4</a></h3>
+                <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash4")" target="_blank">Silos 4</a></h3>
                 <script>
 
                     silos4 = new Array(sens1 = true, sens2 = false, sens3 = false, sens4 = false, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
@@ -175,7 +179,7 @@
 
                 <div class="row" style="color:white">
                     <div class="col-sm">
-                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos5.html" target="_blank">Silos 5</a></h3>
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash5")" target="_blank">Silos 5</a></h3>
                         <script>
 
                         silos5 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = true, sens8 = true);
@@ -209,7 +213,7 @@
                     </div>
 
                     <div class="col-sm">
-                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos6.html" target="_blank">Silos 6</a></h3>
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash6")" target="_blank">Silos 6</a></h3>
                         <script>
 
                         silos6 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = false, sens6 = false, sens7 = false, sens8 = false);
@@ -243,7 +247,7 @@
                     </div>
 
                     <div class="col-sm">
-                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="DashboardSilos7.html" target="_blank">Silos 7</a></h3>
+                        <h3><a style="color:#FFFFFF;text-decoration:none;" href="@Url.Page("Dash7")" target="_blank">Silos 7</a></h3>
                         <script>
 
                         silos7 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = false, sens8 = false);
@@ -275,39 +279,6 @@
                         }
                         </script>
                     </div>
-
-                    <div class="col-sm">
-                        <h3><a style="color:#FFFFFF;text-decoration:none; " href="DashboardSilos8.html" target="_blank">Silos 8</a></h3>
-                        <script>
-
-                        silos8 = new Array(sens1 = true, sens2 = true, sens3 = true, sens4 = true, sens5 = true, sens6 = true, sens7 = true, sens8 = false);
-
-                        document.write(
-                            '<div class="silos8">',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="64">Level 7</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="63">Level 6</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="62">Level 5</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="61">Level 4</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="60">Level 3</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="59">Level 2</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="58">Level 1</div>',
-                            '<div style="width: 200px; height:50px;border-style:solid; border-color:#CCCCCC; border-width:1px; text-align:center; line-height:45px;" id="57">Level 0</div>',
-                            '</div>'
-                        );
-                        var cont8 = 56;
-                        for (var i = 0; i < 8; i++) {
-                            cont8++;
-                            if (silos8[i] == true) {
-                                var a = document.getElementById(cont8);
-                                a.style.backgroundColor = "green";
-                            } else {
-                                var a = document.getElementById(cont8);
-                                a.style.backgroundColor = "red";
-                            }
-                        }
-                        </script>
-                    </div>
-
                 </div>
 
 </body>
