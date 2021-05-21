@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Content Include="Pages\Shared\Dash1.cshtml.cs" />
+    <Content Include="Pages\Shared\silosBg.jpg" />
   </ItemGroup>
 
   <ItemGroup>
